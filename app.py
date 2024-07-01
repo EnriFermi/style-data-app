@@ -252,7 +252,7 @@ class ImageRaterApp:
     def submit_rating(self, rating):
         with open(self.ouput_filename, mode='a', newline='') as output_file:
             self.output_writer = csv.writer(output_file)
-            self.output_writer.writerow([self.indecies[self.index_pointer], rating])
+            self.output_writer.writerow([os.path.basename(self.indecies[self.index_pointer]), rating])
 
         self.index_pointer += 1
         self.display_rating_message(rating)
