@@ -26,10 +26,12 @@ class ImageRaterApp:
         self.image_index = 0
         self.ratings = []
         self.root.bind('<Key>', self.key_press)
-        self.root.attributes('-fullscreen', True)
+        self.root.geometry("1920x1080")
+        
+        # self.root.attributes('-fullscreen', True)
         # self.root.bind('<Configure>', self.resize_image)
         self.space_under_image = 300
-
+        self.root.update()
         self.check_output_directory()
         self.load_index_files()
         # Set up GUI elements
@@ -196,12 +198,12 @@ class ImageRaterApp:
 
 
     def display_image(self):
-        print(self.index_pointer, self.indecies)
+        # print(self.index_pointer, self.indecies)
         if self.index_pointer < len(self.indecies):
             image_path = self.indecies[self.index_pointer]
             img = Image.open(image_path)
             window_height, window_width = self.root.winfo_height()- self.space_under_image, self.root.winfo_width()
-            print(window_height, window_width)
+            # print(window_height, window_width)
             original_width, original_height = img.size
             aspect_ratio = original_width / original_height
 
