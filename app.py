@@ -28,9 +28,9 @@ class ImageRaterApp:
         self.root.bind('<Key>', self.key_press)
         self.root.geometry("1920x1080")
         
-        # self.root.attributes('-fullscreen', True)
+        self.root.attributes('-fullscreen', True)
         # self.root.bind('<Configure>', self.resize_image)
-        self.space_under_image = 300
+        self.space_under_image = 10
         self.root.update()
         self.check_output_directory()
         self.load_index_files()
@@ -186,15 +186,15 @@ class ImageRaterApp:
         # self.canvas = tk.Canvas(root)
         # self.canvas.pack(fill=tk.BOTH, expand=True)
 
-        self.buttons_frame = tk.Frame(self.root)
-        self.buttons_frame.pack()
+        # self.buttons_frame = tk.Frame(self.root)
+        # self.buttons_frame.pack()
 
-        self.buttons = []
-        for i in range(10):
-            button = tk.Button(self.buttons_frame, text=str(i), command=lambda i=i: self.submit_rating(i),
-                               width=5, height=2, font=("Helvetica", 14))
-            button.grid(row=0, column=i, padx=5, pady=5)
-            self.buttons.append(button)
+        # self.buttons = []
+        # for i in range(10):
+        #     button = tk.Button(self.buttons_frame, text=str(i), command=lambda i=i: self.submit_rating(i),
+        #                        width=5, height=2, font=("Helvetica", 14))
+        #     button.grid(row=0, column=i, padx=5, pady=5)
+        #     self.buttons.append(button)
 
 
     def display_image(self):
@@ -252,11 +252,11 @@ class ImageRaterApp:
     def submit_rating(self, rating):
         with open(self.ouput_filename, mode='a', newline='') as output_file:
             self.output_writer = csv.writer(output_file)
-            self.output_writer.writerow([os.path.basename(self.indecies[self.index_pointer]), rating])
+            self.output_writer.writerow([os.path.basename(self.indecies[self.index_pointer]), rating if rating != 0 else 10])
 
         self.index_pointer += 1
         self.display_rating_message(rating)
-        self.root.after(1000, self.display_image)
+        self.root.after(800, self.display_image)
 
     def display_rating_message(self, rating):
         self.rating_label.config(text=str(rating))
