@@ -30,7 +30,7 @@ class ImageRaterApp:
         
         self.root.attributes('-fullscreen', True)
         # self.root.bind('<Configure>', self.resize_image)
-        self.space_under_image = 10
+        self.space_under_image = 50
         self.root.update()
         self.check_output_directory()
         self.load_index_files()
@@ -175,20 +175,26 @@ class ImageRaterApp:
                 self.index_pointer += 1
 
     def setup_gui(self):
+        self.close_button = tk.Button(self.root, text="Close", command=self.root.destroy)
+        self.close_button.place(relx=1.0, x=-10, y=10, anchor='ne')
+
         self.counter_label = tk.Label(self.root, text="", font=("Helvetica", 12))
         self.counter_label.pack(anchor=tk.NW, padx=10, pady=10)
+        
+        # self.rating_label = tk.Label(self.root, text="", font=("Helvetica", 55), fg="red")
+        # self.rating_label.pack(expand = True)
 
-        self.rating_label = tk.Label(self.root, text="", font=("Helvetica", 55), fg="red")
-        self.rating_label.pack()
-
-        self.image_label = tk.Label(self.root)
-        self.image_label.pack(pady=20)
+        self.image_label = tk.Label(self.root, text="", font=("Helvetica", 150), fg="red", compound='center')
+        self.image_label.pack()
+        
+        
+        
         # self.canvas = tk.Canvas(root)
-        # self.canvas.pack(fill=tk.BOTH, expand=True)
+        # self.canvas.pack(pady=20)
 
-        # self.buttons_frame = tk.Frame(self.root)
-        # self.buttons_frame.pack()
-
+        # self.rating_text = self.canvas.create_text(
+        #     200, 200, text="", font=("Helvetica", 55), fill="red"
+        # )
         # self.buttons = []
         # for i in range(10):
         #     button = tk.Button(self.buttons_frame, text=str(i), command=lambda i=i: self.submit_rating(i),
@@ -219,7 +225,7 @@ class ImageRaterApp:
             img_tk = ImageTk.PhotoImage(img)
             # self.image_id = self.canvas.create_image(0, 0, anchor='nw', image=img_tk)
             self.image_label.config(image=img_tk)
-            self.rating_label.config(text='')
+            self.image_label.config(text='')
             self.image_label.image = img_tk
             self.update_counter()
         else:
@@ -259,7 +265,7 @@ class ImageRaterApp:
         self.root.after(800, self.display_image)
 
     def display_rating_message(self, rating):
-        self.rating_label.config(text=str(rating))
+        self.image_label.config(text=str(rating if rating != 0 else 10 ))
 
     def update_counter(self):
         self.counter_label.config(text=f"Image {self.index_pointer + 1} of {len(self.indecies)}", font=("Helvetica", 20))
