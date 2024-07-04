@@ -30,7 +30,7 @@ class ImageRaterApp:
         
         self.root.attributes('-fullscreen', True)
         # self.root.bind('<Configure>', self.resize_image)
-        self.space_under_image = 50
+        self.space_under_image = 60
         self.root.update()
         self.check_output_directory()
         self.load_index_files()
