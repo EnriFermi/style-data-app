@@ -185,7 +185,7 @@ class ImageRaterApp:
         # self.rating_label.pack(expand = True)
 
         self.image_label = tk.Label(self.root, text="", font=("Helvetica", 150), fg="red", compound='center')
-        self.image_label.pack()
+        self.image_label.pack(anchor="center", pady=150)
         
         
         
@@ -220,7 +220,7 @@ class ImageRaterApp:
                 new_width = window_width
                 new_height = int(window_width / aspect_ratio)
 
-            img = img.resize((new_width,new_height), Image.LANCZOS)
+            img = img.resize((int(new_width * 0.7), int(new_height * 0.7)), Image.LANCZOS)
             # Display the image on the canvas
             img_tk = ImageTk.PhotoImage(img)
             # self.image_id = self.canvas.create_image(0, 0, anchor='nw', image=img_tk)
