@@ -1,18 +1,49 @@
-Description of the program startup process.
 
-To start the program, create a stylizations directory in the directory where the program is located and add all the necessary images to it.
+---
 
-|  ATTENTION: Stylized images should be called 'content_<content_id>_...', this is important due to shuffeling process  |
+# Program Startup Guide
 
-Then run the code using the 'python app.py' command.
+## Setup Instructions
 
-In the directory from which you run the program, two directories output and index_file will be created. 
-- output contains all the user's answers in the form of csv files.
-- index_file contains the order in which the mixed files will be shown to the user.
+1. **Prepare Stylizations Directory**  
+   - Create a directory named `stylizations` in the same location as the program.  
+   - Add all the required images to this directory.  
 
-If there are nested directories in stylizations, the program will recursively collect all files with jpg extension from them.
+   **Important:**  
+   - Stylized images should follow the naming convention:  
+     `content_<content_id>_...`  
+     This naming is crucial for the shuffling process to work correctly.
 
-Launch parameters:
---data DATA    Stylizations directory name (Default is 'stylizations')
---out OUT      Output scores directory name (will be created if not present) (Default is 'output')
---index INDEX  Shuffeling index for directory name (will be created if not present) (Default is 'index_file')
+2. **Run the Program**  
+   Execute the following command:  
+   ```
+   python app.py
+   ```
+
+## Directory Structure
+
+Upon execution, the program will automatically create the following directories in the launch location:  
+- **`output/`**: Contains user responses saved as CSV files.  
+- **`index_file/`**: Stores the order in which shuffled files are presented to the user.  
+
+### Nested Directories  
+If the `stylizations` directory contains subdirectories, the program will recursively collect all `.jpg` files.
+
+## Command-Line Parameters
+
+The program supports the following optional parameters:  
+
+| Parameter         | Description                                         | Default Value          |
+|--------------------|-----------------------------------------------------|------------------------|
+| `--data`     | Name of the stylizations directory.                 | `stylizations`         |
+| `--out`       | Name of the output scores directory.                | `output`               |
+| `--index`   | Name of the shuffling index directory.              | `index_file`           |
+
+Example usage:  
+```
+python app.py --data my_stylizations --out results --index shuffle_index
+```
+
+--- 
+
+This is pure raw text, formatted as Markdown, without any additional styling added by editors.
