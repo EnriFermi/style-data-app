@@ -2,8 +2,7 @@ Description of the program startup process.
 
 To start the program, create a stylizations directory in the directory where the program is located and add all the necessary images to it.
 
-|  ATTENTION:                                                                                                |
-|  Stylized images should be called 'content_<content_id>_...', this is important due to shuffeling process  |
+|  ATTENTION: Stylized images should be called 'content_<content_id>_...', this is important due to shuffeling process  |
 
 Then run the code using the 'python app.py' command.
 
