@@ -45,5 +45,3 @@ python app.py --data my_stylizations --out results --index shuffle_index
 ```
 
 --- 
-
-This is pure raw text, formatted as Markdown, without any additional styling added by editors.
