@@ -1,10 +1,19 @@
-Описание процесса запуска программы.
-ПОКА ТЕСТОВЫЙ РЕЖИМ!
+Description of the program startup process.
 
-Для начала работы программы создайте в директории, в которой находится программа директорию stylizations и добавте в нее все необходимые изображения. Затем запустите с помощью комманды 'python app.py' код.
+To start the program, create a stylizations directory in the directory where the program is located and add all the necessary images to it.
+  ______________________________________________________________________________________________________________
+  |  ATTENTION:                                                                                                |
+  |  Stylized images should be called 'content_<content_id>_...', this is important due to shuffeling process  |
+  ▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
+Then run the code using the 'python app.py' command.
 
-В директории, из которой произвден запуск программы, создадутся 2 директории output и index_file. 
-- output содержит в себе все ответы пользователя ввиде csv файлов
-- index_file содержит в себе порядок в котором перемешанные файлы будут показываться пользователю
+In the directory from which you run the program, two directories output and index_file will be created. 
+- output contains all the user's answers in the form of csv files.
+- index_file contains the order in which the mixed files will be shown to the user.
 
-При наличии вложенных директрий в stylizations программа рекурсивно соберет из них все файлы с расширением jpg.
+If there are nested directories in stylizations, the program will recursively collect all files with jpg extension from them.
+
+Launch parameters:
+--data DATA    Stylizations directory name (Default is 'stylizations')
+--out OUT      Output scores directory name (will be created if not present) (Default is 'output')
+--index INDEX  Shuffeling index for directory name (will be created if not present) (Default is 'index_file')
