@@ -43,5 +43,9 @@ Example usage:
 ```
 python app.py --data my_stylizations --out results --index shuffle_index
 ```
+## Interface:
 
+Example of interface:
+
+![alt text](interface.png)
 --- 
