@@ -10,7 +10,7 @@ import random
 import argparse
 
 INDEX_DIR_PATH = './index_file'
-DATA_DIR_PATH = './stylizations'
+DATA_DIR_PATH = './images'
 OUPUT_DIR_PATH = './output'
 
 class ImageRaterApp:

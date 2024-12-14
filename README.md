@@ -5,12 +5,12 @@
 
 ## Setup Instructions
 
-1. **Prepare Stylizations Directory**  
-   - Create a directory named `stylizations` in the same location as the program.  
+1. **Prepare Images Directory**  
+   - Create a directory named `images` in the same location as the program.  
    - Add all the required images to this directory.  
 
    **Important:**  
-   - Stylized images should follow the naming convention:  
+   - Images for labeling should follow the naming convention:  
      `content_<content_id>_...`  
      This naming is crucial for the shuffling process to work correctly.
 
@@ -27,7 +27,7 @@ Upon execution, the program will automatically create the following directories 
 - **`index_file/`**: Stores the order in which shuffled files are presented to the user.  
 
 ### Nested Directories  
-If the `stylizations` directory contains subdirectories, the program will recursively collect all `.jpg` files.
+If the `images` directory contains subdirectories, the program will recursively collect all `.jpg` files.
 
 ## Command-Line Parameters
 
@@ -35,13 +35,13 @@ The program supports the following optional parameters:
 
 | Parameter         | Description                                         | Default Value          |
 |--------------------|-----------------------------------------------------|------------------------|
-| `--data`     | Name of the stylizations directory.                 | `stylizations`         |
+| `--data`     | Name of the images directory.                 | `images`         |
 | `--out`       | Name of the output scores directory.                | `output`               |
 | `--index`   | Name of the shuffling index directory.              | `index_file`           |
 
 Example usage:  
 ```
-python app.py --data my_stylizations --out results --index shuffle_index
+python app.py --data my_images --out results --index shuffle_index
 ```
 ## Interface:
 
